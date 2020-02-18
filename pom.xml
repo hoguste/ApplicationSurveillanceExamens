@@ -12,7 +12,11 @@
 	<artifactId>GestionExamen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>GestionExamen</name>
+<<<<<<< HEAD
 	<description>Application de gestion d'une salle de restaurant</description>
+=======
+	<description>GestionExamen</description>
+>>>>>>> branch 'Entity' of https://github.com/hoguste/ApplicationSurveillanceExamens.git
 
 	<properties>
 		<java.version>1.8</java.version>
