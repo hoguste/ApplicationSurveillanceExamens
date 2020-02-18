@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 <!-- <!DOCTYPE web-app PUBLIC -->
 <!--  "http://java.sun.com/dtd/web-app_3_0.dtd" > -->
 
 <!-- <web-app> -->
 <!--   <display-name>Archetype Created Web Application</display-name> -->
 <!-- </web-app> -->
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+>>>>>>> branch 'controllerJspBranch' of https://github.com/hoguste/ApplicationSurveillanceExamens.git
