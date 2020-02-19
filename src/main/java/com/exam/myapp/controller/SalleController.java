@@ -1,7 +1,16 @@
 package com.exam.myapp.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.exam.myapp.entity.Salle;
+import com.exam.myapp.service.SalleService;
+
 @Controller
-@RequestMapping(value = "/enseignant")
+@RequestMapping(value = "/salle")
 public class SalleController {
 
 	@Autowired
@@ -42,7 +51,7 @@ public class SalleController {
 	@RequestMapping(value = "/find", method = RequestMethod.GET)
 	public String find(Long id, ModelMap model) {
 
-		model.addAttribute("findSalle", salService.find());
+		model.addAttribute("findSalle", salService.find(id));
 
 		return "salle";
 	}

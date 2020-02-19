@@ -3,9 +3,11 @@ package com.exam.myapp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.exam.myapp.entity.Grade;
+import com.exam.myapp.service.GradeService;
 
 @Controller
 @RequestMapping(value = "/grade")
@@ -24,7 +26,7 @@ public class GradeController {
 	}
 
 	@RequestMapping(value = "/ajout", method = RequestMethod.POST)
-	public String ajout(GradeController grade) {
+	public String ajout(Grade grade) {
 
 		graService.ajout(grade);
 
@@ -40,7 +42,7 @@ public class GradeController {
 	}
 
 	@RequestMapping(value = "/modif", method = RequestMethod.POST)
-	public String modif(GradeController grade) {
+	public String modif(Grade grade) {
 
 		graService.modif(grade);
 
@@ -50,7 +52,7 @@ public class GradeController {
 	@RequestMapping(value = "/find", method = RequestMethod.GET)
 	public String find(Long id, ModelMap model) {
 
-		model.addAttribute("findGrade", graService.find());
+		model.addAttribute("findGrade", graService.find(id));
 
 		return "grade";
 	}

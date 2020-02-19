@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Admins</title>
+<title>Page des administrateurs</title>
 </head>
 <body>
 
-	<form:form action="ajout" method="post">
+	<form action="ajout" method="post">
 		<!-- 	'class' pour indiquer le template de style à utiliser, ex : <form class="table table-striped"> -->
 		<table>
 			<tr>
@@ -40,10 +40,10 @@
 
 		</table>
 
-	</form:form>
+	</form>
 
 
-	<form:form action="suppr" method="delete">
+	<form action="suppr" method="delete">
 		<!-- 	'class' pour indiquer le template de style à utiliser, ex : <form class="table table-striped"> -->
 		<table>
 
@@ -55,9 +55,9 @@
 			</tr>
 		</table>
 
-	</form:form>
+	</form>
 
-	<form:form action="modif" method="post">
+	<form action="modif" method="post">
 		<!-- 	'class' pour indiquer le template de style à utiliser, ex : <form class="table table-striped"> -->
 		<table>
 
@@ -88,7 +88,7 @@
 
 		</table>
 
-	</form:form>
+	</form>
 
 
 	<hr color="blue">
@@ -125,9 +125,9 @@
 
 	</table>
 
-	<form:form action="find" method="get">
-		<td><input type="submit" value="find" name="action"></td>
-	</form:form>
+	<form action="find" method="get">
+		<p><input type="submit" value="find" name="action"></p>
+	</form>
 
 	<table>
 		<tr>
@@ -161,5 +161,8 @@
 		</tr>
 
 	</table>
+	
+	<input type="button" value="Retour accueil"
+		onclick="window.location.href='http://localhost:8070/home'">
 </body>
 </html>

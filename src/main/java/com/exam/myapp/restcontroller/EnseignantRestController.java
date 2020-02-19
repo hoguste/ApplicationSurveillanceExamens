@@ -39,16 +39,16 @@ public class EnseignantRestController {
 	}
 	
 	@RequestMapping(value="/suppr/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Object> suppr(@RequestBody Enseignant ens) {
+	public ResponseEntity<Object> suppr(@RequestBody Long id) {
 
-		eser.suppr(ens);
+		eser.suppr(id);
 
 		return new ResponseEntity<Object>("Enseignant supprimé avec succès", HttpStatus.OK);
 
 	}
 	
 	@RequestMapping(value="/modif", method=RequestMethod.POST)
-	public ResponseEntity<Object> ajout(@RequestBody Enseignant ens) {
+	public ResponseEntity<Object> modif(@RequestBody Enseignant ens) {
 
 		eser.modif(ens);
 

@@ -3,14 +3,15 @@ package com.exam.myapp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-public class AdminController {
+import com.exam.myapp.entity.Admin;
+import com.exam.myapp.service.AdminService;
 
-	@Controller
-	@RequestMapping(value = "/admin")
+@Controller
+@RequestMapping(value = "/admin")
+public class AdminController {
 
 		@Autowired
 		private AdminService admService;
@@ -50,7 +51,7 @@ public class AdminController {
 		@RequestMapping(value = "/find", method = RequestMethod.GET)
 		public String find(Long id, ModelMap model) {
 
-			model.addAttribute("findAdmin", admService.find());
+			model.addAttribute("findAdmin", admService.find(id));
 
 			return "admin";
 		}
@@ -64,4 +65,4 @@ public class AdminController {
 		}
 	}
 
-}
+

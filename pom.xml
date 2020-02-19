@@ -9,22 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.exam.myapp</groupId>
-	<artifactId>GestionExamen</artifactId>
+	<artifactId>ApplicationSurveillanceExamens</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>GestionExamen</name>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	<description>Application de gestion d'une salle de restaurant</description>
-=======
-	<description>GestionExamen</description>
->>>>>>> branch 'Entity' of https://github.com/hoguste/ApplicationSurveillanceExamens.git
-=======
-	<description>Demo project for Spring Boot</description>
->>>>>>> branch 'daorc' of https://github.com/hoguste/ApplicationSurveillanceExamens.git
-=======
-	<description>Demo project for Spring Boot</description>
->>>>>>> branch 'controllerJspBranch' of https://github.com/hoguste/ApplicationSurveillanceExamens.git
+	<name>ApplicationSurveillanceExamens</name>
+	<description>Application de gestion de seances de surveillance</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -68,6 +56,19 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
 	</dependencies>
 

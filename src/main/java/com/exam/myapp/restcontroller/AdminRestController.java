@@ -1,7 +1,5 @@
 package com.exam.myapp.restcontroller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exam.myapp.service.AdminService;
 import com.exam.myapp.entity.Admin;
+import com.exam.myapp.service.AdminService;
 
 @CrossOrigin
 @RestController
@@ -41,16 +39,16 @@ public class AdminRestController {
 	}
 	
 	@RequestMapping(value="/suppr/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Object> suppr(@RequestBody Admin adm) {
+	public ResponseEntity<Object> suppr(@RequestBody Long id) {
 
-		aser.suppr(adm);
+		aser.suppr(id);
 
 		return new ResponseEntity<Object>("admin supprimé avec succès", HttpStatus.OK);
 
 	}
 	
 	@RequestMapping(value="/modif", method=RequestMethod.POST)
-	public ResponseEntity<Object> ajout(@RequestBody Admin adm) {
+	public ResponseEntity<Object> modif(@RequestBody Admin adm) {
 
 		aser.modif(adm);
 

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Grades</title>
+<title>Page des grades</title>
 </head>
 <body>
 
@@ -109,5 +109,8 @@
 		</tr>
 
 	</table>
+	
+	<input type="button" value="Retour accueil"
+		onclick="window.location.href='http://localhost:8070/home'">
 </body>
 </html>

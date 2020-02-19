@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Enseignants</title>
+<title>Page des enseignants</title>
 </head>
 <body>
 
@@ -173,5 +173,8 @@
 		</tr>
 
 	</table>
+	
+	<input type="button" value="Retour accueil"
+		onclick="window.location.href='http://localhost:8070/home'">
 </body>
 </html>

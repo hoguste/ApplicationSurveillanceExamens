@@ -39,16 +39,16 @@ public class SalleRestController {
 	}
 	
 	@RequestMapping(value="/suppr/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Object> suppr(@RequestBody Salle sal) {
+	public ResponseEntity<Object> suppr(@RequestBody Long id) {
 
-		saser.suppr(sal);
+		saser.suppr(id);
 
 		return new ResponseEntity<Object>("Salle supprimé avec succès", HttpStatus.OK);
 
 	}
 	
 	@RequestMapping(value="/modif", method=RequestMethod.POST)
-	public ResponseEntity<Object> ajout(@RequestBody Salle sal) {
+	public ResponseEntity<Object> modif(@RequestBody Salle sal) {
 
 		saser.modif(sal);
 

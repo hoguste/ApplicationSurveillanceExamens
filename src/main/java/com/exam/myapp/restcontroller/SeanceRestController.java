@@ -39,16 +39,16 @@ public class SeanceRestController {
 	}
 	
 	@RequestMapping(value="/suppr/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Object> suppr(@RequestBody Seance sea) {
+	public ResponseEntity<Object> suppr(@RequestBody Long id) {
 
-		seser.suppr(sea);
+		seser.suppr(id);
 
 		return new ResponseEntity<Object>("Seance supprimé avec succès", HttpStatus.OK);
 
 	}
 	
 	@RequestMapping(value="/modif", method=RequestMethod.POST)
-	public ResponseEntity<Object> ajout(@RequestBody Seance sea) {
+	public ResponseEntity<Object> modif(@RequestBody Seance sea) {
 
 		seser.modif(sea);
 

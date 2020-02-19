@@ -3,9 +3,11 @@ package com.exam.myapp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.exam.myapp.entity.Seance;
+import com.exam.myapp.service.SeanceService;
 
 @Controller
 @RequestMapping(value = "/seance")
@@ -49,7 +51,7 @@ public class SeanceController {
 	@RequestMapping(value = "/find", method = RequestMethod.GET)
 	public String find(Long id, ModelMap model) {
 
-		model.addAttribute("findSeance", seaService.find());
+		model.addAttribute("findSeance", seaService.find(id));
 
 		return "seance";
 	}

@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="enseignant")
 public class Enseignant {
 	@Id
 	private long id;
@@ -43,6 +43,7 @@ public class Enseignant {
 	private String password;
 	@Column
 	private String role;
+	
 	public long getId() {
 		return id;
 	}

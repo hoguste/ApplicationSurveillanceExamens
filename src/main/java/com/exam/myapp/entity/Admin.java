@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="admin")
 public class Admin {
 @Id
 private long id;

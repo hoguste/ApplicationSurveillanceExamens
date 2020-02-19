@@ -39,16 +39,16 @@ public class GradeRestController {
 	}
 	
 	@RequestMapping(value="/suppr/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Object> suppr(@RequestBody Grade grd) {
+	public ResponseEntity<Object> suppr(@RequestBody Long id) {
 
-		gser.suppr(grd);
+		gser.suppr(id);
 
 		return new ResponseEntity<Object>("Grade supprimé avec succès", HttpStatus.OK);
 
 	}
 	
 	@RequestMapping(value="/modif", method=RequestMethod.POST)
-	public ResponseEntity<Object> ajout(@RequestBody Grade grd) {
+	public ResponseEntity<Object> modif(@RequestBody Grade grd) {
 
 		gser.modif(grd);
 

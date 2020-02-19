@@ -1,5 +1,7 @@
 package com.exam.myapp.security;
 
+
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,42 +29,44 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(datasourceBean)
 				.usersByUsernameQuery("select a.username, a.password from admin a where a.username=?")
-				.authoritiesByUsernameQuery("select a.username, a.role from admin a  where a.username =?");
-		auth.jdbcAuthentication().dataSource(datasourceBean)
-		.usersByUsernameQuery("select e.username, e.password from enseignant e where e.username=?")
-		.authoritiesByUsernameQuery("select e.username, e.role from enseignant e  where e.username =?");
+				.authoritiesByUsernameQuery("select a.username, a.role from admin a where a.username =?");
 
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		http.httpBasic().and().authorizeRequests().antMatchers("/home").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/reservation").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/ajoutreservation").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/supprimerreservation").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getallreservation").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getbyidreservation").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/plat").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/ajoutplat").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/supprimerplat").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getallplat").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getbyidplat").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/menu").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/ajoutmenu").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/supprimermenu").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getallmenu").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getbyidmenu").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/client").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/ajoutclient").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/supprimerclient").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getallclient").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getbyidclient").hasAnyAuthority("admin,user");
-		http.httpBasic().and().authorizeRequests().antMatchers("/users").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/ajoutusers").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/supprimerusers").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getallusers").hasAuthority("admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/getbyidusers").hasAuthority("admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/home").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/admin").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/admin/ajout").hasAuthority("master");
+		http.httpBasic().and().authorizeRequests().antMatchers("/admin/suppr").hasAuthority("master");
+		http.httpBasic().and().authorizeRequests().antMatchers("/admin/modif").hasAuthority("master");
+		http.httpBasic().and().authorizeRequests().antMatchers("/admin/find").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/admin/findall").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/enseignant").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/enseignant/ajout").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/enseignant/suppr").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/enseignant/modif").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/enseignant/find").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/enseignant/findall").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/grade").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/grade/ajout").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/grade/suppr").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/grade/modif").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/grade/find").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/grade/findall").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/salle").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/salle/ajout").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/salle/suppr").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/salle/modif").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/salle/find").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/salle/findall").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/seance").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/seance/ajout").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/seance/suppr").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/seance/modif").hasAnyAuthority("master,admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/seance/find").hasAnyAuthority("master,admin,enseignant");
+		http.httpBasic().and().authorizeRequests().antMatchers("/seance/findall").hasAnyAuthority("master,admin,enseignant");
 		http.formLogin().loginPage("/login").passwordParameter("password").usernameParameter("username")
 				.defaultSuccessUrl("/home").failureUrl("/erreur");
 		http.logout().logoutSuccessUrl("/");
