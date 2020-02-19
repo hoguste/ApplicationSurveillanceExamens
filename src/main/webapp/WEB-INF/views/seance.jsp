@@ -159,14 +159,7 @@
                 <form:radiobutton path="selectedFormat" value="ODS" class="form-check-input"/>
                 <label for="ODS" class="form-check-label">ODS</label>
             </div>
-            <div class="form-check">
-                <form:radiobutton path="selectedFormat" value="CSV" class="form-check-input"/>
-                <label for="CSV" class="form-check-label">CSV</label>
-            </div>
-            <div class="form-check">
-                <form:radiobutton path="selectedFormat" value="HTML" class="form-check-input"/>
-                <label for="HTML" class="form-check-label">HTML</label>
-            </div>
+            
         </div>
         <hr />
         <button type="submit" class="btn btn-default">Export</button>
