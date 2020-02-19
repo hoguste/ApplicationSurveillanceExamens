@@ -82,8 +82,41 @@
 
 	</form:form>
 
+<hr color="blue">
+	
 
-	<hr color="blue">
+	<form:form action="find" method="get">
+		<td><input type="submit" value="find" name="action"></td>
+		 
+	</form:form>
+	
+
+	<table>
+		<tr>
+			<th>id</th>
+			<th>type</th>
+			<th>dateDebut</th>
+			<th>duree</th>
+			<th>enseignants</th>
+			<th>salle</th>
+			<th>matiere</th>
+			<th>dateFin</th>
+		</tr>
+
+		<tr>
+			<td>${findSeance.id}</td>
+			<td>${findSeance.type}</td>
+			<td>${findSeance.dateDebut}</td>
+			<td>${findSeance.duree}</td>
+			<td>${findSeance.enseignants}</td>
+			<td>${findSeance.salle}</td>
+			<td>${findSeance.matiere}</td>
+			<td>${findSeance.dateFin}</td>
+		</tr>
+
+	</table>
+	 <form:form action="${create}" method="POST" modelAttribute="workbookItemsWithFormat">
+        
 
 
 	<table>
@@ -112,10 +145,7 @@
 		</c:forEach>
 
 	</table>
-
-	<form:form action="find" method="get">
-		<td><input type="submit" value="find" name="action"></td>
-		 <div>
+        <div>
             <h4>Output format:</h4>
             <div class="form-check">
                 <form:radiobutton path="selectedFormat" value="XLSX" class="form-check-input"/>
@@ -129,36 +159,18 @@
                 <form:radiobutton path="selectedFormat" value="ODS" class="form-check-input"/>
                 <label for="ODS" class="form-check-label">ODS</label>
             </div>
-            
+            <div class="form-check">
+                <form:radiobutton path="selectedFormat" value="CSV" class="form-check-input"/>
+                <label for="CSV" class="form-check-label">CSV</label>
+            </div>
+            <div class="form-check">
+                <form:radiobutton path="selectedFormat" value="HTML" class="form-check-input"/>
+                <label for="HTML" class="form-check-label">HTML</label>
+            </div>
         </div>
         <hr />
         <button type="submit" class="btn btn-default">Export</button>
-	</form:form>
-
-	<table>
-		<tr>
-			<th>id</th>
-			<th>type</th>
-			<th>dateDebut</th>
-			<th>duree</th>
-			<th>enseignants</th>
-			<th>salle</th>
-			<th>matiere</th>
-			<th>dateFin</th>
-		</tr>
-
-		<tr>
-			<td>${findSeance.id}</td>
-			<td>${findSeance.type}</td>
-			<td>${findSeance.dateDebut}</td>
-			<td>${findSeance.duree}</td>
-			<td>${findSeance.enseignants}</td>
-			<td>${findSeance.salle}</td>
-			<td>${findSeance.matiere}</td>
-			<td>${findSeance.dateFin}</td>
-		</tr>
-
-	</table>
+    </form:form>
 	
 	<input type="button" value="Retour accueil"
 		onclick="window.location.href='http://localhost:8070/home'">
