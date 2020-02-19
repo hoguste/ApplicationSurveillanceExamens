@@ -41,8 +41,8 @@ public class Enseignant {
 	private String username;
 	@Column
 	private String password;
-	@Column
-	private String role;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private Role role;
 	
 	public long getId() {
 		return id;
@@ -110,14 +110,14 @@ public class Enseignant {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 	public Enseignant(long id, String nom, String prenom, Grade grade, String matiere, String adresse, String numTel,
-			String mail, List<Seance> seances, String username, String password, String role) {
+			String mail, List<Seance> seances, String username, String password, Role role) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -133,7 +133,7 @@ public class Enseignant {
 		this.role = role;
 	}
 	public Enseignant(long id, String nom, String prenom, String matiere, String adresse, String numTel, String mail,
-			List<Seance> seances, String username, String password, String role) {
+			List<Seance> seances, String username, String password, Role role) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -148,7 +148,7 @@ public class Enseignant {
 		this.role = role;
 	}
 	public Enseignant(long id, String nom, String prenom, Grade grade, String matiere, String adresse, String numTel,
-			String mail, String username, String password, String role) {
+			String mail, String username, String password, Role role) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -163,7 +163,7 @@ public class Enseignant {
 		this.role = role;
 	}
 	public Enseignant(long id, String nom, String prenom, String matiere, String adresse, String numTel, String mail,
-			String username, String password, String role) {
+			String username, String password, Role role) {
 		super();
 		this.id = id;
 		this.nom = nom;

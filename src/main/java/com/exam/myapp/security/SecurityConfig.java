@@ -1,7 +1,5 @@
 package com.exam.myapp.security;
 
-
-
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(datasourceBean)
-				.usersByUsernameQuery("select a.username, a.password from admin a where a.username=?")
-				.authoritiesByUsernameQuery("select a.username, a.role from admin a where a.username =?");
+				.usersByUsernameQuery("select a.username, a.password from admin a where a.username = ?")
+				.authoritiesByUsernameQuery("select a.username, r.nom_role from admin a, role r where  r.id_role= a.role_id_role  and a.username = ?");
 
 	}
 
